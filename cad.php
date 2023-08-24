@@ -25,15 +25,13 @@
 <?php
     footEcho();
     if(isset($_POST['enviar'])){
-        $Vls = array('"'.$_POST['nome'].'"', '"'.$_POST['email'].'"', '"'.$_POST['RA'].'"');
+        $Vls = array('"'.$_POST['nome'].'"', '"'.$_POST['email'].'"', ''.$_POST['RA'].'');
         $inf = array('info');
         $dt = array('NM_nome', 'EM_email', 'CH_ra');
         $Vers = array(1, 2);
         $Configs = array(array('OR'), 'ERROR'=>array('Email ou RM dos dados escritos, já está cadastrado!', 'erro em cadstrar'));
-        $Up = array();
-        
-        $Cadastrado = InsertBd($inf, $dt, $Vls, $Vers, $Configs, $Up);
 
-        //mensage('o '.$Cadastrado[1].' foi cadastrado com sucesso!');
+        $Cadastrado = InsertBd($inf, $dt, $Vls, $Vers, $Configs);
+        mensage($Cadastrado);
     }
 ?>
