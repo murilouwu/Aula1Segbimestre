@@ -42,7 +42,8 @@ function HeaderEcho($Title, $assets, $itemPlus) {
 
 
 
-function mensage($txt){
+
+	function mensage($txt){
     echo '<script>alert("'.$txt.'");</script>';
 }
 
@@ -51,6 +52,11 @@ function footEcho(){
         </html>
     ';
     echo($res);
+}
+
+function Atalho($pag) {
+    header("Location: $pag");
+    exit();
 }
 
 ?>

@@ -48,4 +48,46 @@ function InsertBd($Infs, $Dts, $Vls, $Vers, $Configs){
         }
     }
 }
+
+function GetTableDates($tableName, $columns) {
+    $columnsList = implode(', ', $columns);
+    $query = "SELECT $columnsList FROM $tableName";
+    $result = $GLOBALS['conn']->query($query);
+
+    if ($result) {
+        $data = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $rowData = array();
+            foreach ($columns as $column) {
+                $rowData[$column] = $row[$column];
+            }
+            $data[] = $rowData;
+        }
+        return $data;
+    } else {
+        return null;
+    }
+}
+
+function DeleteRowAndRelated($tableName, $primaryKeyName, $primaryKeyValue){
+    $querySelect = "SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE REFERENCED_TABLE_NAME = '$tableName' AND REFERENCED_COLUMN_NAME = '$primaryKeyName'";
+    $resultSelect = $GLOBALS['conn']->query($querySelect);
+
+    if ($resultSelect && $resultSelect->num_rows > 0) {
+        while ($row = $resultSelect->fetch_assoc()) {
+            $foreignTableName = $row['TABLE_NAME'];
+            $foreignColumnName = $row['COLUMN_NAME'];
+            $queryDeleteRelated = "DELETE FROM $foreignTableName WHERE $foreignColumnName = $primaryKeyValue";
+            $GLOBALS['conn']->query($queryDeleteRelated);
+        }
+    }
+
+    $queryDeleteMain = "DELETE FROM $tableName WHERE $primaryKeyName = $primaryKeyValue";
+    if ($GLOBALS['conn']->query($queryDeleteMain)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 ?>

@@ -3,9 +3,89 @@
 body{
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
-	background: radial-gradient(circle at bottom left,transparent 25%,var(--corE) 25.5%, var(--corE) 36%, transparent 37%, transparent 100%),radial-gradient(circle at top right,transparent 34%,var(--corE) 34.5%, var(--corE) 45.5%, transparent 46%, transparent 100%);
-	background-size: 1.5em 1.5em;
-	background-color: var(--corC);
-	opacity: 1;
+	background-color: var(--corB);
+	align-items: center;
+	justify-content: center;
 }
+
+.Mensage{
+	color: var(--corC);
+	background-color: var(--corA);
+	padding: 2vh;
+	border: 0.3vw solid var(--corC);
+	border-radius: 0.3vw;
+	font-size: 4vh;
+	font-family: monospace;
+	font-weight: bold;
+	font-style: italic;
+	margin-top: 40vh;
+	box-shadow: 2vw 3vh 0vw -0.5vw var(--corC);
+}
+
+.table{
+	display: flex;
+	flex-wrap: wrap;
+	width: 80vw;
+	height: 70vh;
+	padding: 2vh 4vw;
+	overflow-y: overlay;
+	margin-top: 10vh;
+	border: 0.3vw solid var(--corC);
+	border-radius: 0.3vw;
+	background-color: rgba(0 0 0/30%);
+}
+	.table .card{
+		background-color: var(--corD);
+		padding: 2vh;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 2vh;
+		margin-right: 2vw;
+		border-radius: 0.2vw;
+		border: 0.3vw solid var(--corB);
+		align-items: center;
+		justify-content: center;
+	}
+		.table .card .perfil{
+			height: 8vh;
+			width: 8vh;
+			border-radius: 10vw;
+			background-color: var(--corB);
+			background-image: url(../imgs/logo.png);
+			background-position: -5.7vw 0.4vh;
+			background-size: 18vh;
+			background-repeat: no-repeat;
+			border: 0.3vw solid var(--corC);
+		}
+		.table .card .Lb{
+			color: var(--corC);
+			font-size: 2vh;
+			font-family: monospace;
+			font-weight: bold;
+			font-style: italic;
+			margin-top: 1vh;
+		}
+		.table .card .btns{
+			display: flex;
+			margin-top: 3vh;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+		}
+			.table .card .btns .btn{
+				background-color: var(--corB);
+				padding: 0.5vw;
+				font-size: 2vh;
+				text-decoration: none;
+				color: var(--corC);
+				font-weight: bold;
+				font-family: monospace;
+				margin-right: 0.5vw;
+			}
+			.table .card .btns .excluir{
+				background-color: rgb(231 50 50);
+			}
+				.table .card .btns .btn:hover{
+					cursor: pointer;
+					padding: 0.5vw 1vw;
+				}

@@ -3,9 +3,95 @@
 body{
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
-	background: radial-gradient(circle at bottom left,transparent 25%,var(--corE) 25.5%, var(--corE) 36%, transparent 37%, transparent 100%),radial-gradient(circle at top right,transparent 34%,var(--corE) 34.5%, var(--corE) 45.5%, transparent 46%, transparent 100%);
-	background-size: 1.5em 1.5em;
-	background-color: var(--corC);
-	opacity: 1;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--corB);
+	transition: 0.2s;
 }
+
+	.frm{
+		display: flex;
+		background-color: var(--corA);
+		height: 80vh;
+		flex-direction: column;
+		width: 35vw;
+		margin-top: 10vh;
+		border: 0.3vw solid var(--corC);
+		margin-left: 2vw;
+		border-radius: 0.3vw;
+	}
+		.frm .boxForm{
+			display: flex;
+			width: 38vw;
+			flex-direction: column;
+			background-color: var(--corD);
+			height: 80vh;
+			border-radius: 0.3vw;
+			border: 0.2vw solid var(--corC);
+			margin-left: -5vw;
+			margin-top: -4vh;
+			align-items: center;
+			justify-content: center;
+		}
+			.boxForm .title{
+				color: var(--corC);
+				font-size: 3vh;
+				font-weight: bold;
+				font-family: monospace;
+				text-transform: uppercase;
+				font-style: italic;
+			}
+			.boxForm .inputs{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-around;
+				height: 50%;
+				margin-bottom: 10vh;
+				margin-top: 8vh;
+			}
+				.boxForm .inputs .input{
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: space-around;
+					height: 11vh;
+					width: 87%;
+					color: var(--corC);
+					font-size: 3vh;
+				}
+					.boxForm .inputs .input .inputtext{
+						padding: 0.5vw;
+						background-color: var(--Invisible);
+						border: none;
+						border-bottom: 0.4vh solid var(--corB);
+						color: var(--corC);
+						font-size: 2vh;
+						font-weight: bold;
+						font-family: cursive;
+						width: 26vw;
+					}
+						.boxForm .inputs .input .inputtext::-webkit-input-placeholder{
+							color: rgb(120 175 149);
+						}
+						.boxForm .inputs .input .inputtext:focus{
+							border-bottom: 0.7vh solid var(--corC);
+						}
+						.boxForm .inputs .input .inputtext:hover{
+							cursor: pointer;
+							border-bottom-width: 0.7vh;
+						}
+			.boxForm .inputSub{
+				background-color: var(--corB);
+				border: 0.2vw solid var(--corC);
+				padding: 1vh;
+				font-size: 2.5vh;
+				font-weight: bold;
+				font-family: monospace;
+				text-transform: lowercase;
+				width: 13vw;
+			}
+				.boxForm .inputSub:hover{
+					cursor: pointer;
+					width: 15vw;
+				}
